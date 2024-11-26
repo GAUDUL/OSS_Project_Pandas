@@ -10,6 +10,8 @@ dis_df=pd.read_csv(file_path1) #질병 데이터셋
 medi_df=pd.read_csv(file_path2) #약 데이터셋
 patients_df = pd.read_csv(file_path3) #환자 데이터셋 (증상: cough, fever, fatigue, difficulty breathing)
 
+#결과가 Positive인 환자들의 데이터만 가져오기
+patients_df = patients_df[patients_df['Outcome Variable'] == 'Positive']
 
 #Age구간 나누기
 bins = [10, 19, 29, 39, 49, 59, 69, 79, 89, 99]  # 구간 정의

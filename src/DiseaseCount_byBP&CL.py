@@ -2,14 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-file_path1='./data/Diseases_Symptoms.csv'
-file_path2='./data/Medicine_Details.csv'
 file_path3='./data/Disease_symptom_and_patient_profile_dataset.csv'
 
-dis_df=pd.read_csv(file_path1) #질병 데이터셋
-medi_df=pd.read_csv(file_path2) #약 데이터셋
 patients_df = pd.read_csv(file_path3) #환자 데이터셋 (증상: cough, fever, fatigue, difficulty breathing)
 
+#결과가 Positive인 환자들의 데이터만 가져오기
+patients_df = patients_df[patients_df['Outcome Variable'] == 'Positive']
 
 #문자열로 작성돼있는 값들을 수치화 하기 위한 폼, Low는 1, Normal은 2, High는 3으로 치환
 bp_mapping = {'Low': 1, 'Normal': 2, 'High': 3}
